@@ -1,3 +1,15 @@
-%ul
-  - @models.each do |m|
-    %li= link_to(m, model_path(m.name))
+%p
+  Data:
+  = @data
+
+%p
+  Graph:
+  = @graph
+
+%p
+  Nodes:
+  = @nodes
+
+%p
+  Edges:
+  = @edges
