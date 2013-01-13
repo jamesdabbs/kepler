@@ -10,6 +10,14 @@
           through
           = class_link assoc.through_reflection.klass
 
+%h4 Schema
+%table
+  %tbody
+    - @model.table.each do |name, type|
+      %tr
+        %td= name
+        %td= type
+
 %h4= pluralize(@model.sources.length, 'Source')
 - @model.sources.each do |path|
   = path

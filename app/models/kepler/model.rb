@@ -13,5 +13,11 @@ module Kepler
       end
       files.grep /\/app\//
     end
+
+    def table
+      __getobj__.inspect =~ /\((.*)\)/
+      pairs = $1.split(',').map { |s| s.strip.split(': ') }
+      Hash[ pairs ]
+    end
   end
 end
