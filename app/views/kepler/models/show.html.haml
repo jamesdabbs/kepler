@@ -1,5 +1,19 @@
-%h3= @model.name
+%h2= @model.name
 
+- @model.reflect_on_all_associations.group_by(&:macro).sort.each do |type, associations|
+  %h4= type.to_s.capitalize.gsub '_', ' '
+  %ul
+    - associations.each do |assoc|
+      %li
+        = class_link assoc.klass
+        - if assoc.through_reflection.present?
+          through
+          = class_link assoc.through_reflection.klass
+
+%h4= pluralize(@model.sources.length, 'Source')
 - @model.sources.each do |path|
   = path
   = format_source(path).html_safe
+- if @model.sources.empty?
+  %strong Note:
+  search may fail to find a source file if it does not define any new methods.
