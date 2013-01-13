@@ -1,5 +1,12 @@
+#graph
+  #sidebar
+
+  #content
+
 :javascript
   $(function() {
-    var graph = new Graph(960, 500);
-    graph.draw();
+    $.getJSON("#{graph_path}.json", function(data) {
+      var graph = new Graph(data);
+      graph.draw(640, 500);
+    });
   });

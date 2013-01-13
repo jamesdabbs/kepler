@@ -11,6 +11,18 @@
  *= require_self
  *= require_tree .
  */
+
+#sidebar {
+  width: 33%;
+  float: left;
+  background-color: #bbb;
+}
+
+#content {
+  width: 66%;
+  float: right;
+}
+
 .node {
   stroke: #fff;
   stroke-width: 1.5px;
