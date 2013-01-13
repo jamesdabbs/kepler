@@ -16,4 +16,5 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.2.11"
   s.add_dependency "haml-rails"
   s.add_dependency "railroady"
+  s.add_dependency "coderay"
 end

@@ -29,14 +29,7 @@ module Kepler
     end
 
     def show
-      @model = params[:name].constantize
-    end
-
-    private
-
-    def get_model(filename)
-      klass = filename.sub(/\.rb$/, '').split('/').map {|t| t.camelize}.join('::').constantize
-      klass.ancestors.include?(ActiveRecord::Base) ? klass : nil
+      @model = Model.new params[:name]
     end
   end
 
