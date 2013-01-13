@@ -15,12 +15,12 @@ module Kepler
       links = graph.instance_eval { @edges }
 
       data = { links: [] }
-      data[:nodes] = nodes.map { |type, name, attrs| { name: name, group: 1 } }
+      data[:nodes] = nodes.map { |type, name, attrs| { name: name } }
       map = Hash[ data[:nodes].each_with_index.map { |d,i| [d[:name], i] } ]
       links.each do |type, from, to, _| 
         source, target = map[from], map[to]
         if source && target
-          data[:links] << { source: source, target: target, value: 1 }
+          data[:links] << { source: source, target: target }
         else
           # TODO: figure out what to do about base classes / wherever else this happens
         end
